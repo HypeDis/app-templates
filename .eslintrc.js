@@ -7,9 +7,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 6,
   },
-  plugins: ['jest', 'prettier'],
+  plugins: ['react-hooks', 'jest', 'prettier'],
   extends: [
     'standard',
+    'standard-react',
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
   ],
@@ -22,5 +23,7 @@ module.exports = {
     'consistent-return': 0,
     'no-console': 0,
     'no-var': 2,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

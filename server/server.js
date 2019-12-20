@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
+const clientPath = path.resolve(__dirname, '../client');
 
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
@@ -15,12 +16,14 @@ app.use(
   })
 );
 
+app.use(express.static(path.resolve(clientPath, 'dist')));
+app.use(express.static(path.resolve(clientPath, 'public')));
 app.use(express.json());
 
 app.use('/api', require('./api'));
 
-app.get('/', (req, res) => {
-  res.status(200).send('hello');
+app.get('*', (req, res) => {
+  res.status(200).sendFile(path.resolve(clientPath, 'public/index.html'));
 });
 
 app.use((err, req, res, next) => {
