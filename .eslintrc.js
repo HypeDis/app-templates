@@ -3,6 +3,10 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 6,
+  },
   plugins: ['jest', 'prettier'],
   extends: [
     'semistandard',
@@ -13,9 +17,10 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: 'esprima',
+
   rules: {
     'consistent-return': 0,
-    'no-console': 1,
+    'no-console': 0,
+    'no-var': 2,
   },
 };
