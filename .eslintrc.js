@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
+<<<<<<< HEAD
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -10,6 +11,11 @@ module.exports = {
   plugins: ['jest', 'prettier'],
   extends: [
     'standard',
+=======
+  plugins: ['jest', 'prettier'],
+  extends: [
+    'semistandard',
+>>>>>>> base config
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
   ],
@@ -17,10 +23,17 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+<<<<<<< HEAD
 
   rules: {
     'consistent-return': 0,
     'no-console': 0,
     'no-var': 2,
+=======
+  parser: 'esprima',
+  rules: {
+    'consistent-return': 0,
+    'no-console': 1,
+>>>>>>> base config
   },
 };
