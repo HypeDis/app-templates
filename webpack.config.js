@@ -3,8 +3,10 @@ const webpack = require('webpack');
 const path = require('path');
 require('dotenv').config('');
 
+const NODE_ENV = process.env.NODE_ENV || 'production';
+
 const config = {
-  mode: process.env.NODE_ENV || 'production',
+  mode: NODE_ENV,
   entry: path.resolve(__dirname, 'client/index.js'),
   output: {
     path: path.resolve(__dirname, 'client/dist'),
@@ -23,6 +25,11 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+    }),
+  ],
 };
 
 module.exports = config;
