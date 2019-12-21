@@ -10,7 +10,8 @@
     "start": "node ./server/index.js",
     "start:watch": "./node_modules/.bin/nodemon -q --watch .env ./server/index.js",
     "build": "./node_modules/.bin/webpack",
-    "build:watch": "./node_modules/.bin/webpack -w"
+    "build:watch": "./node_modules/.bin/webpack -w",
+    "start:dev": "npm run build:watch & npm run start:watch"
   },
   "keywords": [
     "express",
@@ -52,11 +53,13 @@
     "morgan": "^1.9.1",
     "pg": "^7.15.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3"
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sequelize": "^5.21.3"
   }
 }
